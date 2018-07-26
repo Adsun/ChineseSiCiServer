@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	<changeSet id="v1-0-0-master-1" author="fengxiang">
+		<createTable tableName="tb_author_info" remarks="作者表">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="author_id" type="varchar(20)" remarks="作者编号">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="varchar(50)" remarks="姓名">
+				<constraints nullable="false" />
+			</column>
+			<column name="dynasty" type="varchar(50)" remarks="朝代"></column>
+			<column name="other_info" type="blob" remarks="其它信息，用blob存储"></column>
+			<column name="created_time" type="datetime"></column>
+			<column name="updated_time" type="datetime"></column>
+		</createTable>
+	</changeSet>
+	<changeSet id="v1-0-0-master-2" author="fengxiang">
+		<createTable tableName="tb_article" remarks="作品表">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="article_id" type="varchar(20)" remarks="作品编号">
+				<constraints nullable="false" />
+			</column>
+			<column name="author_id" type="varchar(20)" remarks="作者编号"></column>
+			<column name="article_content" type="blob" remarks="文章内容，用blob存储"></column>
+			<column name="created_time" type="datetime"></column>
+			<column name="updated_time" type="datetime"></column>
+		</createTable>
+	</changeSet>
+    
+</databaseChangeLog>
